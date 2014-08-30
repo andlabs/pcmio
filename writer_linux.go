@@ -6,6 +6,7 @@ import (
 	"unsafe"
 )
 
+// #cgo CFLAGS: --std=c99
 // #cgo LDFLAGS: -lasound
 // #include <alsa/asoundlib.h>
 // char *cdefault = "default";
