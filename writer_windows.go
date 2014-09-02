@@ -33,7 +33,7 @@ func openDefaultWriter(format Format, rate uint) (*writer, error) {
 	case U8:
 		fmt.wBitsPerSample = 8
 	}
-	fmt.nBlockAlign = fmt.nChannels * fmt.wBitsPerSample
+	fmt.nBlockAlign = (fmt.nChannels * fmt.wBitsPerSample) / 8
 	fmt.nAvgBytesPerSec = fmt.nSamplesPerSec * C.DWORD(fmt.nBlockAlign)
 	fmt.cbSize = 0
 	err := C.waveOutOpen(&w.wo, C.WAVE_MAPPER, &fmt,
